@@ -10,7 +10,7 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= group.name %></td>
+        <td><%= link_to group.name, group_path(group) %></td>
         <td><%= group.description %></td>
       </tr>
     <% end %>
