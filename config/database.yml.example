@@ -1,0 +1,23 @@
+default: &DEFAULT
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: "please-fill-in-your-password"
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *DEFAULT
+  database: sport_forum_development
+
+test:
+  <<: *DEFAULT
+  database: sport_forum_test
+
+staging:
+  <<: *DEFAULT
+  database: sport_forum_staging
+
+production:
+  <<: *DEFAULT
+  database: sport_forum_production
