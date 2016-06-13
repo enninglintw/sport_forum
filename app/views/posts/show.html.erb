@@ -1,0 +1,6 @@
+<%= link_to "回首頁", root_path %>
+<%= link_to "回#{@group.name}討論版", group_path(@group) %>
+
+<h1><%= @post.title %></h1>
+
+<p><%= @post.content %></p>
