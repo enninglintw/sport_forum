@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
+      flash[:success] = "新增文章成功！"
       redirect_to group_path(@group)
     else
       render :new
@@ -34,6 +35,7 @@ class PostsController < ApplicationController
     @group = @post.group
 
     if @post.update(post_params)
+      flash[:success] = "編輯文章成功！"
       redirect_to group_path(@group)
     else
       render :edit
@@ -43,6 +45,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:alert] = "已刪除文章！"
 
     @group = @post.group
     redirect_to group_path(@group)
