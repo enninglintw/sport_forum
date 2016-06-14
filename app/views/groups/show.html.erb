@@ -4,6 +4,14 @@
 
 <p><%= @group.description %></p>
 
+<% if current_user.present? %>
+  <% if current_user.is_member_of?(@group) %>
+    <%= link_to '退出討論版', quit_group_path(@group), method: :post %>
+  <% else %>
+    <%= link_to '加入討論版', join_group_path(@group), method: :post %>
+  <% end %>
+<% end %>
+
 <h2>文章列表</h2>
 
 <%= link_to '新增文章', new_group_post_path(@group) if current_user.present? && current_user.is_member_of?(@group) %>

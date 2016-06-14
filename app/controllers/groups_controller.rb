@@ -46,6 +46,18 @@ class GroupsController < ApplicationController
     redirect_to groups_path
   end
 
+  def join
+    @group = Group.find(params[:id])
+    current_user.join!(@group) if !current_user.is_member_of?(@group)
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+    current_user.quit!(@group) if current_user.is_member_of?(@group)
+    redirect_to group_path(@group)
+  end
+
   private
 
   def group_params
