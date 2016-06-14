@@ -15,3 +15,7 @@ group_attributes.each do |group_attribute|
     group.posts.find_or_create_by(title: "test post #{i}", content: "asdfasdf")
   end
 end
+
+User.create(email: 'test@gmail.com',
+            password: '12345678',
+            password_confirmation: '12345678')

@@ -1,8 +1,12 @@
 <h1>討論版列表</h1>
 
+<%= link_to '新增討論版', new_group_path if current_user %>
+
 <table>
   <thead>
     <tr>
+      <td></td>
+      <td></td>
       <td>討論版</td>
       <td>敘述</td>
     </tr>
@@ -10,6 +14,8 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
+        <td><%= link_to "編輯", edit_group_path(group) if group.user == current_user %></td>
+        <td><%= link_to "刪除", group_path(group), method: :delete if group.user == current_user %></td>
         <td><%= link_to group.name, group_path(group) %></td>
         <td><%= group.description %></td>
       </tr>
