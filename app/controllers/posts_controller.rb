@@ -40,6 +40,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    @group = @post.group
+    redirect_to group_path(@group)
+  end
+
   private
 
   def post_params
