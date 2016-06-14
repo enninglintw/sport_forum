@@ -1,0 +1,18 @@
+<h1>討論版列表</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>討論版</td>
+      <td>敘述</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= link_to group.name, group_path(group) %></td>
+        <td><%= group.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
