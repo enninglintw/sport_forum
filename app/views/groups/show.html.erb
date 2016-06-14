@@ -11,6 +11,7 @@
 <table>
   <thead>
     <tr>
+      <td></td>
       <td>標題</td>
       <td>內容</td>
     </tr>
@@ -18,6 +19,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <td><%= link_to "編輯", edit_group_post_path(@group, post) if post.user == current_user %></td>
         <td><%= link_to post.title, group_post_path(@group, post) %></td>
         <td><%= post.content %></td>
       </tr>
